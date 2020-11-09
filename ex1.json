@@ -1,0 +1,12 @@
+{
+    "nome": "Thiago",
+    "sobrenome": "Borges",
+    "idade": "20",
+    "qualificacoes": [
+        "Engenharia de Softaware",
+        "BEPiD 2014"
+    ],
+    "diabetico": false,
+    "carro": null
+
+}
