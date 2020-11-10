@@ -6,7 +6,7 @@ var logger = require('morgan');
 var handlebars = require('express-handlebars');
 
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+var comparadorRouter = require('./routes/comparador');
 
 var app = express();
 
@@ -20,9 +20,11 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use("/img", express.static(__dirname+"/img"));
+app.use("/public/stylesheets", express.static(__dirname+"/public/stylesheets"));
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use('/comparador', comparadorRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

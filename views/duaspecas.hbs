@@ -1,74 +1,26 @@
+<head>
+    <meta http-equiv=”Content-Type” content=”text/html; charset=utf-8″>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://kit.fontawesome.com/304fafef48.js" crossorigin="anonymous"></script>
+    <link rel="icon" type="imagem/png" href="./img/B.png" />
+    <!-- // chamada da biblioteca JQuery -->
+    <link rel="stylesheet" href="/public/stylesheets/comparador.css">
+    <script type="text/javascript" src="jquery.js"></script>
+    <title>{{ title }}</title>
+
+    {{!-- styles --}}
+
+    {{!-- fim styles --}}
+</head>
+
 <body>
     <div class="page">
-        <header>
-            <div class="header-up">
-                <div class="container">
-                    <div class="row flex-nowrap justify-content-center align-items-center">
-                        <div class="col-4 text-center">
-                            <h1>Hardknowledge</h1>
-                        </div>
-
-                    </div>
-                </div>
-                <!-- fim header-up -->
-            </div>
-            <div class="header-down">
-                <!-- COMEÇO NAV -->
-                <nav class="navbar navbar-expand-md navbar-dark bg-dark">
-                    <a class="navbar-brand" href="/index.html">
-                        <img src="/img/B (2).png" width="50" height="30" class="d-inline-block align-top" alt="">
-                        BRIO!
-                    </a>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse"
-                        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav mr-auto">
-                            <li class="nav-item active">
-                                <a class="nav-link" href="/index.html">Home <span class="sr-only">(current)</span></a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="/pag-explicacao/quem-somos.html">Quem somos</a>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Hardware
-                                </a>
-                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="/pag-explicacao/processador.html">Processadores</a>
-                                    <a class="dropdown-item" href="/pag-explicacao/MemóriaRam.html">Memoria RAM</a>
-                                    <a class="dropdown-item" href="/pag-explicacao/harddisk.html">Hard Disk (HD)</a>
-                                    <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="/pag-explicacao/mouse.html">Mouse</a>
-                                    <a class="dropdown-item" href="/pag-explicacao/teclado.html">Teclado</a>
-                                </div>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Comparador
-                                </a>
-                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="/comparador/comparador.html">Peças de Computador</a>
-                                    <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="/comparador/pecas.html">Banco de peças</a>
-                                </div>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link " href="/login.html">Login/Sign In</a>
-                            </li>
-                        </ul>
-                        <form class="form-inline my-2 my-lg-0">
-                            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                        </form>
-                    </div>
-                </nav>
-        </header>
         <section>
             <div class="comparador">
                 <div class="container">
@@ -83,7 +35,7 @@
                                 <option value="3">i3-9350KF</option>
                                 <option value="2">i5-9400F</option>
                                 <option value="1">i7-9700k</option>
-                                <option value="4" >i9-9900KS</option>
+                                <option value="4">i9-9900KS</option>
                             </select>
 
                         </div>
@@ -98,7 +50,7 @@
                             </select>
                         </div>
                         <div class="col-6">
-                          {{# each SQLarray1}}
+                            {{# each SQLarray1}}
                             <div class="especificacoes">
                                 <h1>i3-9350KF</h1>
                                 <h2>Thread</h2>
@@ -115,7 +67,7 @@
                             {{/each}}
                         </div>
                         <div class="col-6">
-                          {{# each SQLarray2}}
+                            {{# each SQLarray2}}
                             <div class="especificacoes">
                                 <h1>i5-9400</h1>
                                 <h2>Thread</h2>
