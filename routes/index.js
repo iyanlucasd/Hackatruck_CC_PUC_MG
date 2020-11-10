@@ -6,9 +6,13 @@ console.log("Começou!");
 
 console.log("SELECT * FROM CLIENTES");
 
+router.get("/", function (req, res, next) {
+  res.render("index", { title: "Express" });
+});
+
 (async () => {
   /* GET home page. */
-  router.get("/comparador", function (req, res, next) {
+  router.get("/comparador/", function (req, res, next) {
     res.render("index", { title: "Express" });
     console.log(clientes);
   });
