@@ -5,6 +5,17 @@
   box-sizing: content-box;
 }
 /* fim bootstrap */
+
+/* GENERAL */
+h1 {
+  color: #dfba69;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
+body {
+  background-color: #3e4147;
+}
+/* FIM GENERAL */
+
 /* começo body */
 .page {
   background-color: #3e4147;
