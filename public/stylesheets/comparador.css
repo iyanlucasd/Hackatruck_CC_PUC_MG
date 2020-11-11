@@ -226,7 +226,20 @@ select {
   -moz-appearance: none; /* Remove estilo padrão do FireFox */
   appearance: none; /* Remove estilo padrão do FireFox*/
   border: 1px solid #dfba69;
-  margin-left: 20px;
+  margin: 20px;
+  color: #dfba69;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.7), 0 6px 20px 0 rgba(0, 0, 0, 0.55);
+}
+button {
+  font-family: "Poppins", sans-serif;
+  padding: 20px;
+  font-weight: bolder;
+  background-color: #520000;
+  -webkit-appearance: none; /* Remove estilo padrão do Chrome */
+  -moz-appearance: none; /* Remove estilo padrão do FireFox */
+  appearance: none; /* Remove estilo padrão do FireFox*/
+  border: 1px solid #dfba69;
+  margin: 20px;
   color: #dfba69;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.7), 0 6px 20px 0 rgba(0, 0, 0, 0.55);
 }
