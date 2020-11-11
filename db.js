@@ -9,12 +9,6 @@ async function connect(){
   return connection;
 }
 
-async function selectCustomers(){
-  const conn = await connect();
-  const [rows] = await conn.query('SELECT * FROM Possui;');
-  return rows;
-}
-
 async function selectUmaPeca(id){
   const conn = await connect();
   const sql = 'SELECT * FROM Possui WHERE FK_idPeca = ?;';

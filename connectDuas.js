@@ -20,4 +20,5 @@ async function selectDuasPecas(id1, id2){
     return array;
   }
 
+
 module.exports = {selectDuasPecas}

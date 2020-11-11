@@ -2,6 +2,7 @@ var express = require("express");
 const app = require("../app.js");
 const { response } = require("../app.js");
 var router = express.Router();
+var bodyParser = require("body-parser");
 
 console.log("Começou!");
 
@@ -60,6 +61,19 @@ router.get("/pag-explicacao/Teclado", function (req, res, next) {
 router.get("/banco-de-peca", function (req, res, next) {
   res.render("bancoPeca", { title: "Express", layout: "comp" });
 });
+router.post("/comparador/submit", function (req, res, next) {
+  if (!req.body) {
+    return res.sendStatus(400);
+  }
+  console.log(req.body);
+  var id = req.body.pecas1;
+  var id2 = req.body.pecas2;
+  console.log("--------------------------------------");
+  console.log("-----------chegou aqui-------------");
+  console.log(id);
+  console.log(id2);
+  res.redirect("/comparador/" + id + "/" + id2);
+});
 
 (async () => {
   /* GET home page. */
@@ -87,14 +101,18 @@ router.get("/comparador/:id", function (req, res, next) {
 router.get("/comparador/:id1/:id2", function (req, res, next) {
   (async () => {
     const db2 = require("../connectDuas.js");
+    const nome2 = require("../nomeDuas.js");
     var id = [req.params.id1, req.params.id2];
     console.log(id);
     const clientes2 = await db2.selectDuasPecas(id[0], id[1]);
+    const nomes2 = await nome2.selectNomeDuasPecas(id[0], id[1]);
     console.log(clientes2);
     res.render("duaspecas", {
       title: "Express",
       SQLarray1: clientes2[0],
       SQLarray2: clientes2[1],
+      nomeArray1: nomes2[0],
+      nomeArray2: nomes2[1],
       layout: "comp",
     });
   })();

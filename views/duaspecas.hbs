@@ -28,31 +28,33 @@
                         <div class="col-12">
                             <h2>Comparador</h2>
                         </div>
-                        <div class="col-6">
-                            <label for="pecas1">Peças</label>
-                            <select name="pecas1" id="pecas1">
-                                <option value="5" selected>-</option>
-                                <option value="3">i3-9350KF</option>
-                                <option value="2">i5-9400F</option>
-                                <option value="1">i7-9700k</option>
-                                <option value="4">i9-9900KS</option>
-                            </select>
-
+                        <div class="col-12">
+                            <form action="/comparador/submit" method="POST">
+                                <label for="pecas1">Peças</label>
+                                <select name="pecas1" id="pecas1">
+                                    <option value="0" selected>-</option>
+                                    <option name="id" value="1">i3-9350KF</option>
+                                    <option name="id" value="2">i5-9400F</option>
+                                    <option name="id" value="3">i7-9700k</option>
+                                    <option name="id" value="4">i9-9900KS</option>
+                                </select>
+                                <label for="pecas2">Peças</label>
+                                <select name="pecas2" id="pecas2">
+                                    <option value="0" selected>-</option>
+                                    <option name="id2" value="1">i3-9350KF</option>
+                                    <option name="id2" value="2">i5-9400F</option>
+                                    <option name="id2" value="3">i7-9700k</option>
+                                    <option name="id2" value="4">i9-9900KS</option>
+                                </select>
+                                <button type="submit">Compare</button>
+                            </form>
                         </div>
                         <div class="col-6">
-                            <label for="pecas2">Peças</label>
-                            <select name="pecas2" id="pecas2">
-                                <option value="5" selected>-</option>
-                                <option value="3">i3-9350KF</option>
-                                <option value="2">i5-9400F</option>
-                                <option value="1">i7-9700k</option>
-                                <option value="4">i9-9900KS</option>
-                            </select>
-                        </div>
-                        <div class="col-6">
-                            {{# each SQLarray1}}
                             <div class="especificacoes">
-                                <h1>i3-9350KF</h1>
+                                {{# each nomeArray1}}
+                                <h1>{{this.nomePeca}}</h1>
+                                {{/each}}
+                                {{# each SQLarray1}}
                                 <h2>Thread</h2>
                                 <p>{{ this.valorCaracteristica1 }}</p>
                                 <h2>Clock</h2>
@@ -63,13 +65,15 @@
                                 <p>{{ this.valorCaracteristica4 }} W</p>
                                 <h2>Cache</h2>
                                 <p>{{ this.valorCaracteristica5 }} Mb</p>
+                                {{/each}}
                             </div>
-                            {{/each}}
                         </div>
                         <div class="col-6">
-                            {{# each SQLarray2}}
                             <div class="especificacoes">
-                                <h1>i5-9400</h1>
+                                {{# each nomeArray1}}
+                                <h1>{{this.nomePeca}}</h1>
+                                {{/each}}
+                                {{# each SQLarray2}}
                                 <h2>Thread</h2>
                                 <p>{{ this.valorCaracteristica1 }}</p>
                                 <h2>Clock</h2>
@@ -80,8 +84,8 @@
                                 <p>{{ this.valorCaracteristica4 }} W</p>
                                 <h2>Cache</h2>
                                 <p>{{ this.valorCaracteristica5 }} Mb</p>
+                                {{/each}}
                             </div>
-                            {{/each}}
                         </div>
                         <div class="col-12">
                             <div class="conteudo">
