@@ -19,6 +19,12 @@ router.get("/login", function (req, res, next) {
 
 // fim inicial e login
 
+
+router.get("/chatbot", function (req, res, next) {
+  res.redirect(301, 't.me/WatsonChatIyanBot');
+});
+
+
 // pagina explicação e quem somos
 
 {

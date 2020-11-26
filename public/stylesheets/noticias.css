@@ -15,6 +15,25 @@
     padding: 15px;
   }
   
+  .float{
+    position:fixed;
+    width:60px;
+    height:60px;
+    bottom:40px;
+    right:40px;
+    background-color:#25bfd3;
+    color:#FFF;
+    border-radius:50px;
+    text-align:center;
+    font-size:30px;
+    box-shadow: 2px 2px 3px #999;
+    z-index:100;
+  }
+  
+  .my-float{
+    margin-top:16px;
+  }
+
   .header-up h1 {
     color: #fffedf;
     font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;

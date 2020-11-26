@@ -16,6 +16,26 @@
   color: #fffedf;
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
 }
+
+.float{
+	position:fixed;
+	width:60px;
+	height:60px;
+	bottom:40px;
+	right:40px;
+	background-color:#25bfd3;
+	color:#FFF;
+	border-radius:50px;
+	text-align:center;
+  font-size:30px;
+	box-shadow: 2px 2px 3px #999;
+  z-index:100;
+}
+
+.my-float{
+	margin-top:16px;
+}
+
 .pagination > li > a {
   border-radius: 50% !important;
   margin: 0 5px;
