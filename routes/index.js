@@ -40,6 +40,10 @@ router.get("/pag-explicacao/processador", function (req, res, next) {
   res.render("processador", { title: "Express" });
 });
 
+router.get("/noticia/noticia1", function (req, res, next) {
+  res.render("noticia1", { title: "Express" });
+});
+
 router.get("/pag-explicacao/MemoriaRam", function (req, res, next) {
   res.render("memoriaRam", { title: "Express" });
 });
