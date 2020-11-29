@@ -12,7 +12,7 @@ async function connect(){
   // 8128bfa4@
   // us-cdbr-east-02.cleardb.com
   // heroku_c2dfb677c56f025
-  // ?reconnect=true
+  // mysql --host=us-cdbr-east-02.cleardb.com --user=beb38fe1670c6f --password=8128bfa4 --reconnect heroku_c2dfb677c56f025
 
 async function selectDuasPecas(id1, id2){
     const conn = await connect();
