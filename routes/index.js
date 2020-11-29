@@ -56,7 +56,7 @@ router.get("/pag-explicacao/quem-somos", function (req, res, next) {
   res.render("quemSomos", { title: "Express" });
 });
 
-router.get("/pag-explicacao/Teclado", function (req, res, next) {
+router.get("/pag-explicacao/teclado", function (req, res, next) {
   res.render("teclado", { title: "Express" });
 });
 
