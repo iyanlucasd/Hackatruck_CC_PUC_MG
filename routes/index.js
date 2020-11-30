@@ -1,14 +1,21 @@
 var express = require("express");
 const app = require("../app.js");
-const { response } = require("../app.js");
+const { response, connect } = require("../app.js");
 var router = express.Router();
 var bodyParser = require("body-parser");
+const mysqlConn = require("mysql");
+
+var mysql = mysqlConn.createConnection({
+  host: "us-cdbr-east-02.cleardb.com",
+  user: "beb38fe1670c6f",
+  password: "8128bfa4",
+  database: "heroku_c2dfb677c56f025",
+  multipleStatements: true,
+});
+mysql.connect();
 
 console.log("Começou!");
 
-// pagina inicial e login
-
-console.log("SELECT * FROM CLIENTES");
 router.get("/", function (req, res, next) {
   res.render("index", { title: "Express" });
 });
@@ -22,19 +29,6 @@ router.get("/login", function (req, res, next) {
 router.get("/chatbot", function (req, res, next) {
   res.redirect(301, "https://t.me/WatsonChatIyanBot");
 });
-
-
-
-// pagina explicação e quem somos
-
-{
-  /* <a class="dropdown-item" href="/pag-explicacao/processador">Processadores</a>
-<a class="dropdown-item" href="/pag-explicacao/MemóriaRam">Memoria RAM</a>
-<a class="dropdown-item" href="/pag-explicacao/harddisk">Hard Disk (HD)</a>
-<div class="dropdown-divider"></div>
-<a class="dropdown-item" href="/pag-explicacao/mouse">Mouse</a>
-<a class="dropdown-item" href="/pag-explicacao/teclado">Teclado</a> */
-}
 
 router.get("/pag-explicacao/processador", function (req, res, next) {
   res.render("processador", { title: "Express" });
@@ -85,47 +79,43 @@ router.post("/comparador/submit", function (req, res, next) {
   res.redirect("/comparador/" + id + "/" + id2);
 });
 
-(async () => {
-  /* GET home page. */
-  router.get("/comparador/", function (req, res, next) {
-    res.render("index", { title: "Express", layout: "comp" });
-    console.log(clientes);
-  });
-})();
+/* GET home page. */
+// router.get("/comparador/", function (req, res, next) {
+//   var id = [req.query.pecas1, req.query.pecas2];
 
-router.get("/comparador/:id", function (req, res, next) {
-  (async () => {
-    const db = require("../db.js");
-    var id = req.params.id;
-    const clientes = await db.selectUmaPeca(id);
-    console.log(clientes);
-    console.log("chegou umaPeca");
-    res.render("umaPeca", {
-      title: "Express",
-      SQLarray: clientes,
-      layout: "comp",
-    });
-  })();
-});
+//   res.render("duaspecas", { title: "Express", layout: "comp" });
+//   console.log(id);
+// });
 
-router.get("/comparador/:id1/:id2", function (req, res, next) {
-  (async () => {
-    const db2 = require("../connectDuas.js");
-    const nome2 = require("../nomeDuas.js");
-    var id = [req.params.id1, req.params.id2];
-    console.log(id);
-    const clientes2 = await db2.selectDuasPecas(id[0], id[1]);
-    const nomes2 = await nome2.selectNomeDuasPecas(id[0], id[1]);
-    console.log(clientes2);
-    res.render("duaspecas", {
-      title: "Express",
-      SQLarray1: clientes2[0],
-      SQLarray2: clientes2[1],
-      nomeArray1: nomes2[0],
-      nomeArray2: nomes2[1],
-      layout: "comp",
-    });
-  })();
+router.get("/comparador/", function (req, res, next) {
+  
+  var id = [req.query.pecas1, req.query.pecas2];
+  console.log(id);
+  console.log(
+    "SELECT * FROM Possui WHERE FK_idPeca = ",
+    req.query.id1,
+    " OR FK_idPeca = ",
+    req.query.id2,
+    "; SELECT * FROM pecas WHERE idpecas = ",
+    req.query.id1,
+    "OR idpecas = ",
+    req.query.id2
+  );
+  mysql.query(
+    "SELECT * FROM Possui WHERE FK_idPeca = ? OR FK_idPeca = ?; SELECT * FROM pecas WHERE idpecas = ? OR idpecas = ?;",
+    [id[0], id[1], id[0], id[1]],
+    function (err, rows, fields) {
+      if (err) throw err;
+      console.log("The solution is: ", rows[0][0], rows[1][0]);
+      res.render("duaspecas", {
+        title: "Express",
+        SQLarray: rows[0],
+        nomeArray: rows[1],
+        layout: "comp",
+      });
+    }
+  );
+  console.log("chegou");
 });
 
 // fim comparador

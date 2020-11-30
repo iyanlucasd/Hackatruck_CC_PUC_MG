@@ -29,7 +29,7 @@
                             <h2>Comparador</h2>
                         </div>
                         <div class="col-12">
-                            <form action="/comparador/submit" method="POST">
+                            <form type="submit" id="submit">
                                 <label for="pecas1">Peças</label>
                                 <select name="pecas1" id="pecas1">
                                     <option value="0" selected>-</option>
@@ -71,42 +71,36 @@
                         </div>
                         <div class="col-6">
                             <div class="especificacoes">
-                                {{# each nomeArray1}}
-                                <h1>{{this.nomePeca}}</h1>
-                                {{/each}}
-                                {{# each SQLarray1}}
+                                <h1>{{nomeArray.[0].nomePeca}}</h1>
                                 <h2>Thread</h2>
-                                <p>{{ this.valorCaracteristica1 }}</p>
+                                <p>{{ SQLarray.[0].valorCaracteristica1 }}</p>
                                 <h2>Clock</h2>
-                                <p>Até {{ this.valorCaracteristica2 }} GHz</p>
+                                <p>Até {{ SQLarray.[0].valorCaracteristica2 }} GHz</p>
                                 <h2>Soquete</h2>
-                                <p>{{ this.valorCaracteristica3 }}</p>
+                                <p>{{ SQLarray.[0].valorCaracteristica3 }}</p>
                                 <h2>TDP</h2>
-                                <p>{{ this.valorCaracteristica4 }} W</p>
+                                <p>{{ SQLarray.[0].valorCaracteristica4 }} W</p>
                                 <h2>Cache</h2>
-                                <p>{{ this.valorCaracteristica5 }} Mb</p>
-                                {{/each}}
+                                <p>{{ SQLarray.[0].valorCaracteristica5 }} Mb</p>
                             </div>
                         </div>
+
                         <div class="col-6">
                             <div class="especificacoes">
-                                {{# each nomeArray2}}
-                                <h1>{{this.nomePeca}}</h1>
-                                {{/each}}
-                                {{# each SQLarray2}}
+                                <h1>{{nomeArray.[1].nomePeca}}</h1>
                                 <h2>Thread</h2>
-                                <p>{{ this.valorCaracteristica1 }}</p>
+                                <p>{{ SQLarray.[1].valorCaracteristica1 }}</p>
                                 <h2>Clock</h2>
-                                <p>Até {{ this.valorCaracteristica2 }} GHz</p>
+                                <p>Até {{ SQLarray.[1].valorCaracteristica2 }} GHz</p>
                                 <h2>Soquete</h2>
-                                <p>{{ this.valorCaracteristica3 }}</p>
+                                <p>{{ SQLarray.[1].valorCaracteristica3 }}</p>
                                 <h2>TDP</h2>
-                                <p>{{ this.valorCaracteristica4 }} W</p>
+                                <p>{{ SQLarray.[1].valorCaracteristica4 }} W</p>
                                 <h2>Cache</h2>
-                                <p>{{ this.valorCaracteristica5 }} Mb</p>
-                                {{/each}}
+                                <p>{{ SQLarray.[1].valorCaracteristica5 }} Mb</p>
                             </div>
                         </div>
+
                         <div class="col-12">
                             <div class="conteudo">
                                 <div class="carroceu">
